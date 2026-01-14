@@ -7,10 +7,12 @@ environment:
   sdk: ^3.10.4
 
 # Add regular dependencies here.
+publish_to: none # harus none kalo menggunakan git
 dependencies:
   belajar_dart_packages_library:
     git:
-      url: 
+      url: git@github.com:Said-Habibi/belajar_dart_packages_library.git
+      ref: 1.0.0 # branch atau git
   path: ^1.9.0
 
 dev_dependencies:
