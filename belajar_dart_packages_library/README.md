@@ -69,3 +69,20 @@ Pubspec
 - pubspec.yaml merupakan konfigurasi dari dart packages
 - di dalam pubspec, kita perlu tentukan nama dart packages yang kita buat, termasuk dependency yang kita butuhkan di dart package tersebut
 
+Membuat Library
+- saat membuat kode dart di dart packages, disarankan lakukan di dalam folder src
+- dan ketika melakukan imort kode dart dari library, jangan import dari folder dari folder src, hal ini karena kode dart di src biasanya digunakan sebagai internal library, dan tidak dijamin akan backward compatible ketika terjadi update library
+
+Export Library
+- setelah membuat kode dart di dalam folder src, kita bisa buat kode dart di lib yang digunakan untuk mengekspos bagian mana yang ingin kita ekspos
+- kita bisa menggunakan kata kunci export jika ingin mengekspos semua kode di dalam file dart, atau gunakan export show jika hanya beberapa saja
+- jangan lupa untuk menambahkan kata kunci library dan diikuti dengan nama library yang kita buat, walaupun tidak wajib, tapi direkomendasikan menggunakan nya, karena secara default jika kita tidak menambahkan library, secara otomatis nama library nya adalah string kosong
+
+Import Library
+- setelah membuat library, jika kita ingin menggunakannya, kita bisa mencobanya di folder example
+- kita bisa melakukan import dengan pola:
+package:name_library/file.dart
+
+Publish Package ke Github
+- setelah membuat library menggunakan dart packages, kita bisa menyimpannya di Git server, contohnya Github
+- dart packages terintegrasi dengan baik dengan Git, sehingga kita bisa menambahkan library yang sudah kita buat ke aplikasi melalui Git
