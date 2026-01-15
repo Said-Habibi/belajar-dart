@@ -16,4 +16,5 @@ void main(){
   for (var value in linkedList){
     print(value.value);
   }
+  print(linkedList);
 }
