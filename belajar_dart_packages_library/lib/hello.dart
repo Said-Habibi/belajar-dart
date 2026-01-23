@@ -1,5 +1,5 @@
 // kode export library
-library belajar_dart_packages_librarr;
+library belajar_dart_packages_librarry;
 
 export 'src/say_helo.dart';
 
