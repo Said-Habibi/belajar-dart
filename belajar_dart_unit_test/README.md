@@ -64,5 +64,85 @@ tearDown Function
 - cocok untuk melakukan hal yang harus dilakukan setelah semua unit test berjalan
 - jika teardown function di tempatkan dalam group function, maka teardown function ini hanya berlaku untuk test function di dalam group tersebut
 
+Platform Selector
+- pada beberapa kasus, mungkin kita membuat kode dart yang dikhususkan untuk platform tertentu, misal untuk sistem operasi tertentu misalnya
+- kita bisa menandai sebuah unit test dengan annotation @TestOn, untuk memberi tahu bahwa unit test ini untuk platform yang berbeda, secara otomatis unit test tersebut akan di skip
+- platform selector mendukung operator boolean, seperti &&, || dan !
 
+Daftar Platform
+- vm: test di command line dart vm
+- chrome: test di browser chrome
+- firefox: test di browser firefox
+- safari: test di browser safari
+- ie: test di browser internet explorer
+- node: test di NodeJs
+- browser: test di browser apapun
+- js: test telah di compile ke JavaScript
+- blink: test di browser yang memiliki blink render engine
+- windows: test di os windows
+- mac-os: test di os mac
+- linux: test di os linux
+- android: test di os android
+- ios: test di os IOS
+- posix: test di os POSIX
+
+Platform Selector Parameter
+- saat menggunakan annotation @TestOn, maka seluruh unit test di file tersebut akan menggunakan platform selector yang sudah di tentukan
+- kadanag, kita hanya ingin beberapa test function atau group function saja misalnya, pada kasus ini kita bisa menambahkan parameter testOn
+
+Skip Test
+- saat kita membuat unit test, kadang ada kalanya sebuah unit test bermasalah dan belum bisa diperbaiki
+- pada kasus ini, jangan hapus unit tersebut, tapi tandai unit test tersebut agar tidak dijalankan, ataup skip
+- kita bisa menggunakan annotation @Skip untuk menandai sebuah file unit test agar di skip
+
+Skip Parameter
+- menggunakan annotation @Skip secara otomatis akan melakukan skip seluruh test di file tersebut
+- kadang, ada kalanya kita ingin melakukan skip satu buah test function atau group function
+- kadang kita bisa menambahkan object parameter skip pada test function dan group function
+
+Tag
+- saat membuat unit test yang banyak, kadang kita ingin menambahkan tag terhadap unit test nya
+- biasanya ini digunakan sebagai penanda untuk tag
+- kita bisa menggunakan annotation @Tags, atau menggunakan named parameter tags di test atau group function
+- salah satu keuntungan menambahkan tag, kita bisa meminta dart untuk menjalankan unit test dengan tag tertentu saja misalnya, dengan perintah:
+``dart test --tags "tag dengan boolean selector"``
+
+Retry Test
+- saat membuat unit test, kadang ada kalanya unit test tersebut tidak stabil, misal butuh konek ke database atau sistem lain
+- hal ini menyebabkan kadang unit test sering gagal, bukan karena kode salah, tapi karena faktor seperti koneksi network, dan lain-lain
+- dart memiliki fitu untuk melakukan retry ketika unit test gagal dilakukan
+- kita bisa menggunakan annotation @Retry dan secara otomatis unit test akan di retry sejumlah yang kita tentukan
+
+Retry Parameter
+- jika kita hanya ingin melakukan retry pada test atau group function tertentu, kita juga bisa menambahkan named parameter retry
+
+Platform Spesific Configuration
+- saat menggunakan @Skip, secara otomatis tidak akan melihat platform apapun, dia akan di skip secara otomatis
+- bagaimana jika kasusnya misalnya, kita ingin melakukan Skip, namun hanya untuk platform "mac-os" saja?
+- pada kasus seperti ini, kita bisa menggunakan annotation @OnPlatform
+
+Platform Specific Paramaeter
+- sama dengan annotation lainnya, jika misal kita hanya ingin menambahkan konfigurasi platform pada test atau group tertentu, kita bisa tambahkan named parameter onPlatform
+
+Package Configuration
+- sebelumnya, kita hanya melakukan pengaturan di file unit tast dart saja
+- apa yang terjadi jika misal kita butuh pengaturan yang sama, untuk semua file unit test? misal kita ingin semua hanya berjalan di windows, atau semua memiliki tag, dan lain-lain. maka, kita harus lakukan satu persatu di file dart nya
+- untungnya, dart memiliki package configuration file untuk unit test, dimana kita bisa gunakan file yaml untuk menambah informasi unit test di seluruh package hanya dengan satu file, yaitu dart_test.yaml
+
+Configuration Format
+- banyak sekali yang bisa kita atur di package configuration file
+- kita bisa melihat detailnya di dokumentasi resminya
+- https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md
+
+Mock Object
+- saat kita membuat unit test, kadang tidak semua object bisa kita test
+- contoh, misal kita memiliki object yang harus mengirim API request ke Payment Gateway, atau sistem lain yang diluar kontol kita
+- pada kasus seperti ini, kita tidak bisa memaksakan untuk membuat unit test yang mengirim request ke sistem lain, karena jika kita paksakan, bisa jadi nanti hasil unit testnya tidak konsisten
+- pada kasus seperti ini, kita bisa menggunakan konsep moc object, yaitu membuat object tiruan yang bisa kita atur tingkah lakunya agar sesuai dengan yang kita inginkan
+
+Contoh Kasus
+- sebelum belajar mock object, sekarang kita akan coba buat contoh kasus, misal kita memiliki class dengan nama BookService dan BookRepository
+- BookRepository merupakan class yang berisikan kode untuk memanipulasi data Book ke dalam sistem lain, misal database atau API lain
+- BookService merupakan class yang berisikan kode untuk bussiness logic aplikasi kita
+- BookService memiliki method yang bisa digunakan untuk membuat Book, mengubah Book, mengambil Book dan menghapus Book
 
