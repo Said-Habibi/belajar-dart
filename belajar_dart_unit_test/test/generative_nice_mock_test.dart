@@ -6,6 +6,8 @@ import 'package:test/test.dart';
 // Import class yang ingin di-mock dari LIB folder
 import 'package:belajar_dart_unit_test/book.dart'; // PASTIKAN PATH INI BENAR!
 
+import 'generative_nice_mock_test.mocks.dart';
+
 // Ini akan generate file: generate_nice_mock_test.mocks.dart
 @GenerateNiceMocks([
   MockSpec<BookRepository>(),
