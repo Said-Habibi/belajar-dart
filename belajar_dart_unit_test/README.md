@@ -146,3 +146,23 @@ Contoh Kasus
 - BookService merupakan class yang berisikan kode untuk bussiness logic aplikasi kita
 - BookService memiliki method yang bisa digunakan untuk membuat Book, mengubah Book, mengambil Book dan menghapus Book
 
+Mockito
+- dart sudah menyediakan package khusus untuk membuat mock objet yaitu mockito
+- https://pub.dev/packages/mockito
+- mockito merupakan package yang terinspirasi dari library mock object java dengan nama sama, yaitu mockito https://github.com/mockito/mockito
+
+Menginstall mockito
+- sebelum kita menggunakan mockito, silahkan tambahkan package mockito terlebih dahulu
+- selain itu, mockito juga membutuhkan package build_runner, jadi pastikan kita menambakan package build_runner juga
+- https://pub.dev/packages/build_runner
+
+Membuat Mock Object
+- cara kerja mockito adalah dengan membuat generated file berisi mock class yang bisa kita gunakan sebagai pengganti class aslinya
+- pertama, kita perlu memberitahu mockito untuk membuat mock objec dengan menggunakan anntation GenerativeNiceMocks, dan lakkan import ke file dengan format:
+``namafile_test.mocks.dart
+- selanjutnya, kita perlu menjalankan build_runner, agar file mock otomatis dibuatkan oleh mockito
+
+Verifikasi Mock Object
+- saat kita membuat unit test menggunakan mock object, yang perlu di perhatikan adalah, kita harus bisa memastikan bahwa mock object benar-baner dipanggil, karena jika tidak, resikonya unit test kita menjadi tidak valid
+- contoh misal kita hapus kode yang memanggil bookrepository di BookService, dan lihat apa yang terjadi
+
