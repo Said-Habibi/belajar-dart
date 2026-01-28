@@ -3,7 +3,8 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:belajar_dart_unit_test/book.dart' as _i2;
+import 'package:belajar_dart_unit_test/book.dart' as _i3;
+import 'package:belajar_dart_unit_test/book_repository.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -26,10 +27,28 @@ import 'package:mockito/mockito.dart' as _i1;
 /// See the documentation for Mockito's code generation for more information.
 class MockBookRepository extends _i1.Mock implements _i2.BookRepository {
   @override
-  _i2.Book? findById(String? id) =>
+  void save(_i3.Book? book) => super.noSuchMethod(
+    Invocation.method(#save, [book]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void update(_i3.Book? book) => super.noSuchMethod(
+    Invocation.method(#update, [book]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  void delete(_i3.Book? book) => super.noSuchMethod(
+    Invocation.method(#delete, [book]),
+    returnValueForMissingStub: null,
+  );
+
+  @override
+  _i3.Book? finById(String? id) =>
       (super.noSuchMethod(
-            Invocation.method(#findById, [id]),
+            Invocation.method(#finById, [id]),
             returnValueForMissingStub: null,
           )
-          as _i2.Book?);
+          as _i3.Book?);
 }
