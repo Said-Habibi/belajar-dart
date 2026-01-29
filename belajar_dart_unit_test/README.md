@@ -261,3 +261,10 @@ Perlu menambahkan package:
 
 - Mendukung matcher saat stubbing atau verifikasi.
 - Gunakan `any` untuk argumen apapun, atau `argThat(matcher)`.
+
+### Best Practice Mock Object
+
+- testing menggunakan real object lebih baik dibandingkan menggunakan mock object
+- selama kita bisa membuat real objectnya, selalu gunakan real object, dibandingkan menggunakan mock object
+- gunakan mock object, hanya ketika kita tidak bisa membuat real objectnya di unit test
+- jika menggunakan mock object, pastikan selalu melakukan verifikasi interaksi yang terjadi terhadap mock object tersebut

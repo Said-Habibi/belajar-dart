@@ -36,11 +36,9 @@ packages:
   belajar_dart_packages_library:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "v1.0.0"
-      resolved-ref: "2f06e5fbcdd36cc5ec07b0bd997303d604bbec1c"
-      url: "git@github.com:Said-Habibi/belajar_dart_packages_library.git"
-    source: git
+      path: "../belajar_dart_packages_library"
+      relative: true
+    source: path
     version: "1.0.0"
   boolean_selector:
     dependency: transitive

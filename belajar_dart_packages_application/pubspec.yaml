@@ -12,7 +12,9 @@ dependencies:
   belajar_dart_packages_library:
     git:
       url: git@github.com:Said-Habibi/belajar_dart_packages_library.git
-      ref: v1.0.0 # branch atau git
+      ref: v1.0.0
+      # gunakan ssh-key untuk mengakses github
+      # path: ../belajar_dart_packages_library
   path: ^1.9.0
 
 dev_dependencies:
